@@ -3,21 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Bootstrap and jQuery</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <title>Test Bootstrap</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+<style>
+  .background-image {
+      background-image: url('images\pngtree-black-and-white-gym-room-with-a-row-of-equipment-image_2911173.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  .background-image h1 {
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+</style>
 </head>
 <body>
-    <div class="container mt-5">
-        <h1 class="text-center text-primary">Bootstrap is working!</h1>
-        <button class="btn btn-success" id="test-button">Test jQuery</button>
-    </div>
-    <script>
-        $(document).ready(function() {
-            $('#test-button').click(function() {
-                alert('jQuery is working!');
-            });
-        });
-    </script>
+
+<div class="background-image">
+<h1>Hello, Bootstrap and jQuery!</h1>
+</div>
+
 </body>
 </html>
