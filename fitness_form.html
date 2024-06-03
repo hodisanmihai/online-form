@@ -5,28 +5,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test Bootstrap</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
-</head>
-<style>
-  .background-image {
-      background-image: url('images\pngtree-black-and-white-gym-room-with-a-row-of-equipment-image_2911173.jpg');
-      background-size: cover;
-      background-position: center;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-  }
-  .background-image h1 {
-      color: white;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-  }
-</style>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        } 
+        video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+        .container {
+            display: flex;
+            width: 50%;
+            height: 50%;
+            position: relative;
+            z-index: 1;
+            margin: auto;
+        }
+        .left {
+            border: 3px solid black;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: black;
+            font-size: 3em;
+            text-align: center;
+            background-color: #007bff;
+            clip-path: circle(69% at left center);
+        }
+        .right {
+            background-color: white;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-left: 0px;
+            text-align: center;
+        }
+        .right p {
+            font-size: 1.2em; 
+            margin-bottom: 20px;
+        }
+        .button {
+            transition: all .5s ease;
+            background-color: black;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 1.2em;
+            border: none;
+            cursor: pointer;
+        }
+        .button:hover {
+            color: #001F3F;
+            background-color: #fff;
+        }
+    </style>
 </head>
 <body>
+    <video autoplay muted loop>
+        <source src="images\video.mp4" type="video/mp4">
+        
+    </video>
+    <div class="container">
+        <div class="left">
+            <div>FIND YOUR PLAN</div>
+        </div>
+        <div class="right">
+            <p>Complete the survey to find your best plan</p>
+            <button class="button">START</button>
+        </div>
+    </div>
 
-<div class="background-image">
-<h1>Hello, Bootstrap and jQuery!</h1>
-</div>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
