@@ -3,10 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <title>Form</title>
+    <title>Fitness Training Form</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('https://source.unsplash.com/1600x900/?fitness,gym');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #fff;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+            margin-top: 50px;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .form-control {
+            border-radius: 5px;
+        }
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .btn-primary {
+            background-color: #ff9800;
+            border: none;
+            border-radius: 5px;
+        }
+        .btn-primary:hover {
+            background-color: #e68900;
+        }
+    </style>
 </head>
 <body>
-    
+
+<div class="container">
+    <div class="form-header">
+        <h2>Fitness Training Form</h2>
+        <p>Please fill out this form to help us create a personalized training plan for you.</p>
+    </div>
+    <form>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your email">
+        </div>
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" class="form-control" id="age" placeholder="Enter your age">
+        </div>
+        <div class="form-group">
+            <label for="sex">Sex:</label>
+            <select class="form-control" id="sex">
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="height">Height (cm):</label>
+            <input type="number" class="form-control" id="height" placeholder="Enter your height">
+        </div>
+        <div class="form-group">
+            <label for="weight">Current Weight (kg):</label>
+            <input type="number" class="form-control" id="weight" placeholder="Enter your weight">
+        </div>
+        <div class="form-group">
+            <label for="bodyType">Body Type:</label>
+            <input type="text" class="form-control" id="bodyType" placeholder="Enter your body type">
+        </div>
+        <div class="form-group">
+            <label for="workoutDays">How many days per week do you plan to work out?</label>
+            <input type="number" class="form-control" id="workoutDays" placeholder="Enter number of days">
+        </div>
+        <div class="form-group">
+            <label for="workoutFrequency">How many times per day do you plan to work out?</label>
+            <input type="number" class="form-control" id="workoutFrequency" placeholder="Enter frequency">
+        </div>
+        <div class="form-group">
+            <label for="experience">Do you have any prior experience with training or attending a fitness gym?</label>
+            <textarea class="form-control" id="experience" rows="3" placeholder="Describe your experience"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="healthIssues">Are there any health issues or conditions we should be aware of?</label>
+            <textarea class="form-control" id="healthIssues" rows="3" placeholder="Describe your health issues"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="goals">What are your goals for attending fitness training? (multiple choices)</label>
+            <select multiple class="form-control" id="goals">
+                <option>Weight loss</option>
+                <option>Muscle gain</option>
+                <option>Muscle toning and definition</option>
+                <option>Improving cardiovascular health</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="timeframe">In what timeframe do you wish to see the desired results? (multiple choices)</label>
+            <select multiple class="form-control" id="timeframe">
+                <option>1 month</option>
+                <option>3 months</option>
+                <option>6 months</option>
+                <option>1 year</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="skills">What skills do you aim to improve or acquire? (multiple choices)</label>
+            <select multiple class="form-control" id="skills">
+                <option>Strength</option>
+                <option>Endurance</option>
+                <option>Flexibility</option>
+                <option>Balance</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

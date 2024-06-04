@@ -37,12 +37,12 @@
             opacity: 0; 
         }
         .left {
-            border: 3px solid black;
+            border: none;
             flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: black;
+            color: rgb(255, 255, 255);
             font-size: 2.2em;
             text-align: center;
             background-color: #007bff;
@@ -58,7 +58,7 @@
             font-family: fantasy;
             font-size: 25px;
             text-align: center;
-        }
+             padding-left: 10px;        }
         .right {
             background-color: white;
             flex: 1;
@@ -91,8 +91,17 @@
         }
         .button:hover {
             color: #001F3F;
-            background-color: #fff;
+            background-color: #007bff;
+            
         }
+         
+        .body.fill{
+          background-color: #007bff;
+          color: #007bff;
+        }
+          
+        }
+        
     </style>
 </head>
 <body>
@@ -119,7 +128,11 @@
             
             $(".button").click(function() {
                 $(".left").addClass("move");
+                 
+                $("body").addClass("move");
 
+                $("body").addClass("body.fill");
+                 
                 setTimeout(function() {
                     $(".right").addClass("fill-blue-right");
                 }, 200); 
