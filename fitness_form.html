@@ -4,113 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fitness Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body, html {
-            margin: 0;
-            padding: 0;
+        html, body {
             height: 100%;
-            width: 100%;
-            overflow: hidden;
-            font-family: Arial, sans-serif;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body {
+            background-image: url('images/background1.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
             justify-content: center;
             align-items: center;
-            display: flex;
-        }
-        video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transform: translate(-50%, -50%);
-            z-index: -1;
         }
         .container {
             display: flex;
-            width: 50%;
-            height: 50%;
-            position: relative;
-            z-index: 1;
-            margin: auto;
-            opacity: 0; 
+            justify-content: space-between;
+            background: linear-gradient(77deg, rgba(255,0,0,0.8547794117647058) 0%, rgba(0,84,159,0.85) 20%);
+            padding: 20px;
+            border: 2px solid rgba(0,255,255,0.7);
+            border-radius: 10px;
+            max-width: 800px;
+            width: 100%;
+            transition: transform 0.1s;
+        }
+        .left, .right {
+            flex: 1;
+            padding: 20px;
         }
         .left {
-            border: none;
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: rgb(255, 255, 255);
-            font-size: 2.2em;
+            font-family: 'Anton', sans-serif;
             text-align: center;
-            background-color: #007bff;
-            clip-path: circle(69% at left center);
-            transition: all 2s ease;
+            font-size: 34px;
+            font-weight: 400;
+            color: white;
         }
-        .left.move {
-            clip-path: circle(69% at right center);
-            border: none;
-        }
-        .left div {
-            padding-right: 1.5cm;
-            font-family: fantasy;
-            font-size: 25px;
-            text-align: center;
-             padding-left: 10px;        }
         .right {
-            background-color: white;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding-left: 0px;
             text-align: center;
-            transition: background-color 2s ease;
-        }
-        .right.fill-blue-right {
-            background-color: #007bff;
-            
-        }
-        .right p {
-            font-size: 1rem;
-            margin-bottom: 20px;
+            color: white;
         }
         .button {
-            transition: all .5s ease;
-            background-color: black;
+            background-color: #4CAF50;
             color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 25px;
-            font-size: 1.2em;
+            padding: 10px 20px;
+            margin: 10px 0;
             border: none;
             cursor: pointer;
+            border-radius: 5px;
+            transition: transform 0.3s;
         }
         .button:hover {
-            color: #001F3F;
-            background-color: #007bff;
-            
+            background-color: #45a049;
+            transform: scale(1.1);
         }
-         
-        .body.fill{
-          background-color: #007bff;
-          color: #007bff;
-        }
-          
-        }
-        
     </style>
 </head>
 <body>
-    <video autoplay muted loop>
-        <source src="images/video.mp4" type="video/mp4">
-    </video>
-    <div class="container">
+    <div class="container" id="container">
         <div class="left">
-            <div>FIND YOUR PLAN</div>
+            FIND YOUR PLAN
         </div>
         <div class="right">
             <p>Complete the survey to find your best plan</p>
@@ -122,23 +79,25 @@
     <script src="js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function() {
-            
-            $(".container").animate({ opacity: 1 }, 2000);
+            $('#container').on('mousemove', function(e) {
+                var $this = $(this);
+                var offset = $this.offset();
+                var width = $this.width();
+                var height = $this.height();
+                var x = e.pageX - offset.left;
+                var y = e.pageY - offset.top;
+                
+                var xPercent = (x / width) - 0.5;
+                var yPercent = (y / height) - 0.5;
+                
+                var rotateX = yPercent * 12; 
+                var rotateY = xPercent * -17; 
 
-            
-            $(".button").click(function() {
-                $(".left").addClass("move");
-                 
-                $("body").addClass("move");
+                $this.css('transform', 'rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)');
+            });
 
-                $("body").addClass("body.fill");
-                 
-                setTimeout(function() {
-                    $(".right").addClass("fill-blue-right");
-                }, 200); 
-                setTimeout(function() {
-                    window.location.href = "form.html";
-                }, 3300); 
+            $('#container').on('mouseleave', function() {
+                $(this).css('transform', 'rotateX(0deg) rotateY(0deg)');
             });
         });
     </script>
