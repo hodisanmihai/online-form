@@ -52,8 +52,10 @@
             width: 100%;
             object-fit: cover;
             transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
             opacity: 0.17;
             mix-blend-mode: multiply;
+            -webkit-mix-blend-mode: multiply;
         }
 
         .container {
@@ -152,10 +154,12 @@
                 var rotateY = xPercent * -17; 
 
                 $this.css('transform', 'rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)');
+                $this.css('-webkit-transform', 'rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)');
             });
 
             $('#container').on('mouseleave', function() {
                 $(this).css('transform', 'rotateX(0deg) rotateY(0deg)');
+                $(this).css('-webkit-transform', 'rotateX(0deg) rotateY(0deg)');
             });
         });
     </script>
