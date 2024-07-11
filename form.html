@@ -6,12 +6,9 @@
     <title>Fitness Training Form</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body {
-            background-image: url('https://source.unsplash.com/1600x900/?fitness,gym');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            color: #fff;
+         body {
+            background: linear-gradient(to right, red, blue, aqua);
+            color: whitesmoke;
         }
         .container {
             background-color: rgba(0, 0, 0, 0.7);
@@ -38,7 +35,27 @@
         .btn-primary:hover {
             background-color: #e68900;
         }
+        .btn-secondary {
+            background-color: #0056b3;
+            border: none;
+            border-radius: 5px;
+        }
+        .btn-secondary:hover {
+            background-color: #004494;
+        }
+
+        @media only screen and (max-width:768px) {
+
+            .container{
+                width: 90%;
+                margin-bottom: 70px;
+            }
+
+        }
+
+
     </style>
+
 </head>
 <body>
 
@@ -46,77 +63,79 @@
     <div class="form-header">
         <h2>Fitness Training Form</h2>
         <p>Please fill out this form to help us create a personalized training plan for you.</p>
+        <button id="enButton" class="btn btn-secondary">English</button>
+        <button id="roButton" class="btn btn-secondary">Română</button>
     </div>
     <form>
         <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter your email">
+            <label for="email" data-en="Email:" data-ro="Email:">Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your email" data-en="Enter your email" data-ro="Introdu emailul tău">
         </div>
         <div class="form-group">
-            <label for="age">Age:</label>
-            <input type="number" class="form-control" id="age" placeholder="Enter your age">
+            <label for="age" data-en="Age:" data-ro="Vârstă:">Age:</label>
+            <input type="number" class="form-control" id="age" placeholder="Enter your age" data-en="Enter your age" data-ro="Introdu vârsta ta">
         </div>
         <div class="form-group">
-            <label for="sex">Sex:</label>
+            <label for="sex" data-en="Sex:" data-ro="Sex:">Sex:</label>
             <select class="form-control" id="sex">
-                <option>Male</option>
-                <option>Female</option>
-                <option>Other</option>
+                <option data-en="Male" data-ro="Masculin">Male</option>
+                <option data-en="Female" data-ro="Feminin">Female</option>
+                <option data-en="Other" data-ro="Altul">Other</option>
             </select>
         </div>
         <div class="form-group">
-            <label for="height">Height (cm):</label>
-            <input type="number" class="form-control" id="height" placeholder="Enter your height">
+            <label for="height" data-en="Height (cm):" data-ro="Înălțime (cm):">Height (cm):</label>
+            <input type="number" class="form-control" id="height" placeholder="Enter your height" data-en="Enter your height" data-ro="Introdu înălțimea ta">
         </div>
         <div class="form-group">
-            <label for="weight">Current Weight (kg):</label>
-            <input type="number" class="form-control" id="weight" placeholder="Enter your weight">
+            <label for="weight" data-en="Current Weight (kg):" data-ro="Greutate curentă (kg):">Current Weight (kg):</label>
+            <input type="number" class="form-control" id="weight" placeholder="Enter your weight" data-en="Enter your weight" data-ro="Introdu greutatea ta">
         </div>
         <div class="form-group">
-            <label for="bodyType">Body Type:</label>
-            <input type="text" class="form-control" id="bodyType" placeholder="Enter your body type">
+            <label for="bodyType" data-en="Body Type:" data-ro="Tip somatic:">Body Type:</label>
+            <input type="text" class="form-control" id="bodyType" placeholder="Enter your body type" data-en="Enter your body type" data-ro="Introdu tipul tău somatic">
         </div>
         <div class="form-group">
-            <label for="workoutDays">How many days per week do you plan to work out?</label>
-            <input type="number" class="form-control" id="workoutDays" placeholder="Enter number of days">
+            <label for="workoutDays" data-en="How many days per week do you plan to work out?" data-ro="Câte zile pe săptămână plănuiești să te antrenezi?">How many days per week do you plan to work out?</label>
+            <input type="number" class="form-control" id="workoutDays" placeholder="Enter number of days" data-en="Enter number of days" data-ro="Introdu numărul de zile">
         </div>
         <div class="form-group">
-            <label for="workoutFrequency">How many times per day do you plan to work out?</label>
-            <input type="number" class="form-control" id="workoutFrequency" placeholder="Enter frequency">
+            <label for="workoutFrequency" data-en="How many times per day do you plan to work out?" data-ro="De câte ori pe zi îți propui să mergi la antrenament?">How many times per day do you plan to work out?</label>
+            <input type="number" class="form-control" id="workoutFrequency" placeholder="Enter frequency" data-en="Enter frequency" data-ro="Introdu frecvența">
         </div>
         <div class="form-group">
-            <label for="experience">Do you have any prior experience with training or attending a fitness gym?</label>
-            <textarea class="form-control" id="experience" rows="3" placeholder="Describe your experience"></textarea>
+            <label for="experience" data-en="Do you have any prior experience with training or attending a fitness gym?" data-ro="Ai vreo experiență anterioară cu antrenamentele sau cu frecventarea unei săli de fitness?">Do you have any prior experience with training or attending a fitness gym?</label>
+            <textarea class="form-control" id="experience" rows="3" placeholder="Describe your experience" data-en="Describe your experience" data-ro="Descrie experiența ta"></textarea>
         </div>
         <div class="form-group">
-            <label for="healthIssues">Are there any health issues or conditions we should be aware of?</label>
-            <textarea class="form-control" id="healthIssues" rows="3" placeholder="Describe your health issues"></textarea>
+            <label for="healthIssues" data-en="Are there any health issues or conditions we should be aware of?" data-ro="Există vreo afecțiune sau problemă de sănătate pe care ar trebui să o aduci la cunoștința noastră?">Are there any health issues or conditions we should be aware of?</label>
+            <textarea class="form-control" id="healthIssues" rows="3" placeholder="Describe your health issues" data-en="Describe your health issues" data-ro="Descrie problemele tale de sănătate"></textarea>
         </div>
         <div class="form-group">
-            <label for="goals">What are your goals for attending fitness training? (multiple choices)</label>
+            <label for="goals" data-en="What are your goals for attending fitness training? (multiple choices)" data-ro="Care sunt obiectivele tale prin participarea la antrenamente în sala de fitness? (opțiuni multiple)">What are your goals for attending fitness training? (multiple choices)</label>
             <select multiple class="form-control" id="goals">
-                <option>Weight loss</option>
-                <option>Muscle gain</option>
-                <option>Muscle toning and definition</option>
-                <option>Improving cardiovascular health</option>
+                <option data-en="Weight loss" data-ro="Pierderea în greutate">Weight loss</option>
+                <option data-en="Muscle gain" data-ro="Creșterea musculară">Muscle gain</option>
+                <option data-en="Muscle toning and definition" data-ro="Tonifiere și definire musculară">Muscle toning and definition</option>
+                <option data-en="Improving cardiovascular health" data-ro="Îmbunătățirea sănătății cardiovasculare">Improving cardiovascular health</option>
             </select>
         </div>
         <div class="form-group">
-            <label for="timeframe">In what timeframe do you wish to see the desired results? (multiple choices)</label>
+            <label for="timeframe" data-en="In what timeframe do you wish to see the desired results? (multiple choices)" data-ro="În cât timp îți dorești să observi rezultatele dorite? (opțiuni multiple)">In what timeframe do you wish to see the desired results? (multiple choices)</label>
             <select multiple class="form-control" id="timeframe">
-                <option>1 month</option>
-                <option>3 months</option>
-                <option>6 months</option>
-                <option>1 year</option>
+                <option data-en="1 month" data-ro="1 lună">1 month</option>
+                <option data-en="3 months" data-ro="3 luni">3 months</option>
+                <option data-en="6 months" data-ro="6 luni">6 months</option>
+                <option data-en="1 year" data-ro="1 an">1 year</option>
             </select>
         </div>
         <div class="form-group">
-            <label for="skills">What skills do you aim to improve or acquire? (multiple choices)</label>
+            <label for="skills" data-en="What skills do you aim to improve or acquire? (multiple choices)" data-ro="Care sunt abilitățile pe care îți propui să le îmbunătățești sau să le dobândești? (opțiuni multiple)">What skills do you aim to improve or acquire? (multiple choices)</label>
             <select multiple class="form-control" id="skills">
-                <option>Strength</option>
-                <option>Endurance</option>
-                <option>Flexibility</option>
-                <option>Balance</option>
+                <option data-en="Strength" data-ro="Forță">Strength</option>
+                <option data-en="Endurance" data-ro="Rezistență">Endurance</option>
+                <option data-en="Flexibility" data-ro="Flexibilitate">Flexibility</option>
+                <option data-en="Balance" data-ro="Echilibru">Balance</option>
             </select>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
@@ -125,5 +144,27 @@
 
 <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#enButton').click(function() {
+            changeLanguage('en');
+        });
+        $('#roButton').click(function() {
+            changeLanguage('ro');
+        });
+
+        function changeLanguage(language) {
+            $('[data-en]').each(function() {
+                var text = $(this).data(language);
+                if (this.tagName === 'OPTION') {
+                    $(this).text(text);
+                } else {
+                    $(this).text(text);
+                    $(this).attr('placeholder', text);
+                }
+            });
+        }
+    });
+</script>
 </body>
 </html>
