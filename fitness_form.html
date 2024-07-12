@@ -62,32 +62,72 @@
         .container {
             display: flex;
             justify-content: space-between;
-            background: linear-gradient(77deg, rgba(255,0,0,0.8547794117647058) 0%, rgba(0,84,159,0.85) 20%);
+            background: repeating-conic-gradient(from var(--a), #ff2770 0%, #ff2770 5%, transparent 5%, transparent 40%, #ff2770 50%);
             padding: 20px;
-            border: 2px solid rgba(0,255,255,0.7);
-            border-radius: 10px;
             max-width: 800px;
             width: 100%;
             transition: transform 0.1s;
             box-shadow: 1px 1px 15px 0.001px rgba(245, 245, 245, 0.603);
             z-index: 1;
             position: relative;
+            animation: animate 4s linear infinite;
+            border-radius: 20px;
+        }
+
+        @property --a{
+            syntax :'<angle>';
+            inherits: false;
+            initial-value: 0deg;
+            }
+
+        @keyframes animate 
+        {
+            0%
+            {
+                --a :0deg;
+            }
+            100%{
+                --a:360deg;
+            }
+        }
+
+        .container::before{
+            content:'';
+            position: absolute;
+            right:0px;
+            bottom: 0px; 
+            width: 100%;
+            height: 100%;
+            background: repeating-conic-gradient(from var(--a), #45f3ff 0%, #45f3ff 5%, transparent 5%, transparent 40%, #45f3ff 50%);
+            animation:animate 4s linear infinite;
+            animation-delay:-1s;
+            border-radius:20px
+        }
+
+        .container::after{
+            content:'';
+            position:absolute;
+            inset: 8px;
+            background: linear-gradient(90deg, rgba(20,20,20,1) 0%, rgba(70,70,70,1) 100%);
+            border-radius: 20px;
+            z-index: 0;
         }
 
         .left, .right {
             flex: 1;
             padding: 10px;
+            z-index: 1;
         }
         .left {
             font-family: 'Anton', sans-serif;
             text-align: center;
             font-size: 34px; 
             font-weight: 400;
-            color: white;
+            color: rgb(255, 255, 255);
         }
         .right {
             text-align: center;
-            color: white;
+            color: rgb(255, 255, 255);
         }
 
         .right p { 
@@ -95,7 +135,7 @@
         }
 
         .button {
-            background-color: rgba(0,84,159,0.8);
+            background-color: #ff2770;
             color: white;
             padding: 10px 20px;
             margin: 10px 0;
@@ -149,15 +189,15 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                background: linear-gradient(102deg, rgba(255,0,0,0.8547794117647058) 10%, rgba(0,84,159,0.85) 40%);
+                
                 padding: 20px;
-                border: 2px solid rgba(0,255,255,0.7);
-                border-radius: 10px;
+                
+                border-radius: 20px;
                 max-width: 90vw;
                 width: 80%;
                 height: auto;
                 transition: transform 0.1s;
-                box-shadow: 1px 1px 15px 0.001px rgba(245, 245, 245, 0.603);
+                
                 z-index: 1;
                 position: relative;
             }
