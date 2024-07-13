@@ -30,9 +30,13 @@
             margin-right: auto;
         }
 
+        .form-header{
+            margin-bottom: 20px;
+        }
+
         .form-header h2 {
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 2px;
         }
 
         .form-header p {
@@ -42,7 +46,7 @@
         .form-group label {
             font-weight: bold;
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 20px;
         }
 
         .form-control {
@@ -113,46 +117,59 @@
         }
 
         @media (max-width: 768px) {
-            .container {
-                width: 90%;
-                margin-bottom: 70px;
-            }
+    .container {
+        width: 90% ;
+        margin-bottom: 70px ;
+    }
 
-            .form-header h2 {
-                font-size: 24px;
-            }
+    .form-header h2 {
+        font-size: 24px ;
+    }
 
-            .form-header p {
-                font-size: 14px;
-            }
+    .form-header p {
+        font-size: 14px ;
+    }
 
-            .btn-primary, .btn-secondary {
-                font-size: 16px;
-            }
+    .btn-primary, .btn-secondary {
+        font-size: 16px ;
+    }
 
-            #submit-button {
-                left: 120px;
-                font-size: 18px;
-            }
-        }
+    #submit-button {
+        left: 120px ;
+        font-size: 18px ;
+    }
+
+    .sfarsit {
+        left: 41px !important;
+        justify-content: center ;
+        align-items: center ;
+    }
+}
+
+.sfarsit{
+        margin-top: -50px;
+        left:125px;
+        justify-content: center;
+        align-items: center ;
+    }
 
         a {
             transition: color 0.5s, background 0.5s;
             font-family: "Helvetica", Arial, sans-serif;
             font-size: 20px;
-            top: 100px;
+            top: 105px;
             font-weight: 100;
             display: block;
             position: absolute;
             z-index: 3;
             text-decoration: none;
-            width: 200px;
-            left: 22.4%;
+            width: 140px;
+            left: 22.2%;
             transform: translateX(-50%);
             text-align: center;
             color: white;
-            height: 60px;
-            line-height: 60px;
+            height:35px;
+            line-height: 35px;
             border-radius: 30px;
             background: black;
         }
@@ -184,11 +201,13 @@
         }
 
         svg {
+            top: -5px;
+            left: 29px;
             position: relative;
             z-index: 2;
             pointer-events: none;
-            width: 240px;
-            height: 220px;
+            width: 180px;
+            height: 225px;
             cursor: pointer;
             transition: translate3d(0, 0, 0);
         }
@@ -293,8 +312,8 @@
 
 <div class="container">
     <div class="form-header">
-        <h2>Fitness Training Form</h2>
-        <p>Please fill out this form to help us create a personalized training plan for you.</p>
+        <h2 data-en="Fitness Training Form" data-ro="Formular Antrenament Fitness">Fitness Training Form</h2>
+        <p data-en="Please fill out this form to help us create a personalized training plan for you." data-ro="Vă rugăm să completați acest formular pentru a ne ajuta să creăm un plan de antrenament personalizat pentru dumneavoastră.">Please fill out this form to help us create a personalized training plan for you.</p>
         <button id="enButton" class="btn btn-secondary english">English</button>
         <button id="roButton" class="btn btn-secondary romanian">Română</button>
     </div>
@@ -378,7 +397,7 @@
             <label for="email" data-en="Email:" data-ro="Email:">Email:</label>
             <input type="email" class="form-control" id="email" placeholder="Enter your email" data-en="Enter your email" data-ro="Introdu emailul tău">
         </div>
-        <div style="position: relative; height: 220px;">
+        <div class="sfarsit" style="position: relative; height: 220px;">
             <a id="submit-button" href="#">Submit</a>
             <svg viewBox="0 0 240 220">
                 <rect id="middle" x="20" y="100" height="60" width="200" rx="30"></rect>
