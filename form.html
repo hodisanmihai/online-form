@@ -134,8 +134,6 @@
                 left: 120px;
                 font-size: 18px;
             }
-
-
         }
 
         a {
@@ -249,6 +247,46 @@
         .hidden {
             display: none;
         }
+
+        
+        #popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        #popupContent {
+            background: #1ecd97;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            color: black;
+        }
+
+        #popup.hidden {
+            display: none;
+        }
+
+        #closePopup {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #303030;
+            border: none;
+            border-radius: 5px;
+            color: whitesmoke;
+            cursor: pointer;
+        }
+
+        #closePopup:hover {
+            background-color: #606060;
+        }
     </style>
 </head>
 <body>
@@ -261,10 +299,6 @@
         <button id="roButton" class="btn btn-secondary romanian">Română</button>
     </div>
     <form>
-        <div class="form-group">
-            <label for="email" data-en="Email:" data-ro="Email:">Email:</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter your email" data-en="Enter your email" data-ro="Introdu emailul tău">
-        </div>
         <div class="form-group">
             <label for="age" data-en="Age:" data-ro="Vârstă:">Age:</label>
             <input type="number" class="form-control" id="age" placeholder="Enter your age" data-en="Enter your age" data-ro="Introdu vârsta ta">
@@ -332,6 +366,18 @@
                 <option data-en="Balance" data-ro="Echilibru">Balance</option>
             </select>
         </div>
+        <div class="form-group">
+            <label for="name" data-en="Name:" data-ro="Nume:">Name:</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter your name" data-en="Enter your name" data-ro="Introdu numele tău">
+        </div>
+        <div class="form-group">
+            <label for="phone" data-en="Phone Number:" data-ro="Număr de telefon:">Phone Number:</label>
+            <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number" data-en="Enter your phone number" data-ro="Introdu numărul tău de telefon">
+        </div>                
+        <div class="form-group">
+            <label for="email" data-en="Email:" data-ro="Email:">Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your email" data-en="Enter your email" data-ro="Introdu emailul tău">
+        </div>
         <div style="position: relative; height: 220px;">
             <a id="submit-button" href="#">Submit</a>
             <svg viewBox="0 0 240 220">
@@ -363,6 +409,20 @@
             </svg>
         </div>
     </form>
+</div>
+
+<div id="popup" class="hidden">
+    <div id="popupContent">
+        <h2 data-en="Congratulations! You finished the survey." data-ro="Felicitari! ai termnat formularul.">Congratulations! You finished the survey.</h2>
+        <p data-en="Your form has been submitted successfully.
+        You will be contacted by your new trainer after we analize the informations."
+           data-ro="Veți fi contactat de noul dvs. antrenor după ce vom analiza informațiile."
+        >Your form has been submitted successfully.
+            You will be contacted by your new trainer after we analize the informations.
+        </p>
+        <h3 data-en="Thank You!" data-ro="Mutlumim!">Thank You!</h3>
+        <button id="closePopup">Close</button>
+    </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
@@ -412,6 +472,8 @@
                     div.addClass("loading-end");
                     
                     $("#submit-button").addClass("hidden");
+                    
+                    $("#popup").removeClass("hidden");
                 }, 500);
             }
 
@@ -428,6 +490,10 @@
 
         $(window).resize(resize);
         resize();
+
+        $("#closePopup").click(function() {
+            $("#popup").addClass("hidden");
+        });
     });
 </script>
 </body>
